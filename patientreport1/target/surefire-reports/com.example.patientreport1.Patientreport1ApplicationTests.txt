@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.example.patientreport1.Patientreport1ApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.518 s - in com.example.patientreport1.Patientreport1ApplicationTests

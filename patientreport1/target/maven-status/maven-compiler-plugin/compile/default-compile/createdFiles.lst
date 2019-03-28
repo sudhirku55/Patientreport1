@@ -1,0 +1,6 @@
+com\example\patientreport1\models\PageConfig.class
+com\example\patientreport1\Patientreport1Application.class
+com\example\patientreport1\models\Logincontroller.class
+com\example\patientreport1\models\Patients.class
+com\example\patientreport1\patientcontroller\Patientscontroller.class
+com\example\patientreport1\repository\PatientsRepository.class
