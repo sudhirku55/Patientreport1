@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+
+<title>POC</title>
+
+
+<script src="angular.min.js"></script>
+
+<script
+	src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+<script src="post.component.js"></script>
+<script src=" CreateDialogCtrl.js"></script>
+<script src="EditDialogCtrl.js"></script>
+<script src="script.js"></script>
+
+
+<link
+	href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet">
+</head>
+<body>
+
+	<div class="container" ng-app="app">
+		<h1 style="color: black">Point of care:-</h1>
+		<p>Click on add new parameter to create elements group</p>
+		<div ng-controller="postcontroller as $scope">
+
+			<button type="button" class="btn btn-primary" ng-click="$scope.open()">Add
+				New Parameter</button>
+			<br>
+			<br>
+			
+
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="nameID">Please enter any name or group to filter:</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" name="name" id="nameID"
+						placeholder="Enter name or group" ng-model="test" />
+				</div>
+			</div>
+
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Group</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="x in listOfPatient | filter:test">
+						<td><input type="text" ng-model="x.name"  value="{{x.name}}" ></td>
+						<td><div class="btn-group" uib-dropdown is-open="status.isopen">
+				<button id="single-button" type="button" class="btn btn-primary"
+					uib-dropdown-toggle ng-disabled="disabled" id="type">
+					<span ng-if="x.group !=null">{{ x.group }}</span>
+					<span ng-if="x.group ==null">--Select One--</span>
+					 <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" uib-dropdown-menu role="menu"
+					aria-labelledby="single-button">
+					<li role="menuitem" ng-repeat="item in items"><a
+						href="#" ng-click="$event.preventDefault(); x.group = item">{{
+							item }}</a></li>
+
+				</ul></td>
+						
+
+						<td><span ng-click="deleteAction(x._id)"
+							class="glyphicon glyphicon-trash"></span>
+							
+							
+          <span class="glyphicon glyphicon-edit" ng-click="editDialog(x)"></span>
+        
+							</td>
+
+
+
+
+
+					</tr>
+
+				</tbody>
+			</table>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	
+<button class="btn btn-danger" type="button" ng-click="apply()">Apply</button>
+			
+
+		</div>
+	</div>
+</body>
+
+</html>
+
+
+
